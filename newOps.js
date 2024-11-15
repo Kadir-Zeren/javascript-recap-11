@@ -208,5 +208,118 @@ const tasitlar = [ucanAraclar, karaAraclari];
 console.log(tasitlar);
 console.log(tasitlar[0][1]);
 
-const tasitlar1 = [...ucanAraclar, ...karaAraclari];
+const tasitlar1 = [...karaAraclari, "Kamyon", ...ucanAraclar];
 console.log(tasitlar1);
+
+const cumle = "Olmak ya da olmamak";
+
+const karakter = [...cumle];
+
+console.log(karakter);
+console.log(cumle);
+
+console.log("MAX:", Math.max(1, 3, 4, -1, 4));
+const rakamlar = [23, 45, 66, 77, 12, -1];
+
+//? MATH.MIN
+console.log("MIN:", Math.min(...rakamlar));
+
+//? Array Copy
+const myNumbers = [4, 5, 6, [11, 22]];
+const herNumbers = [1, 2, 3, ...myNumbers];
+const hisNumbers = [...herNumbers];
+
+console.log(herNumbers, myNumbers);
+console.log(hisNumbers);
+
+hisNumbers.push(7);
+myNumbers.push(77);
+
+console.log("MY:", myNumbers);
+console.log("HER:", herNumbers);
+console.log("HIS:", hisNumbers);
+
+myNumbers[3][1] = 44; //? spread kullanilsa dahi nested olan alanlar deep copy olmaz.
+
+// Sig Kopyalama
+const theirNumbers = hisNumbers;
+
+theirNumbers.push(8);
+console.log(theirNumbers, hisNumbers);
+
+//? Object copying
+
+const first0bj = { a: 1, b: 2, c: 3 };
+const secondObj = { a: 2, d: 3, c: 4 };
+
+const copiedFirstObj = { ...first0bj };
+console.log(copiedFirstObj);
+
+copiedFirstObj.a = 44;
+//? nesting olmadigi icin deep copy gibi davranir.
+console.log(copiedFirstObj, first0bj);
+
+const combinedObjs = { ...secondObj, ...first0bj };
+console.log(combinedObjs);
+
+//? nested
+const people = {
+  person1: {
+    name: "Can",
+    surname: "Canan",
+    dob: "1990",
+    job: "developer",
+    salary: "140000",
+    drivingLicense: true,
+  },
+  person2: {
+    name: "John",
+    surname: "Sweet",
+    dob: "1990",
+    job: "tester",
+    salary: "110000",
+    drivingLicense: false,
+  },
+  person3: {
+    name: "Steve",
+    surname: "Job",
+    dob: "2000",
+    job: "developer",
+    salary: "90000",
+    drivingLicense: true,
+  },
+};
+
+console.log("MAAAS:", people.person3.salary);
+
+//! FOR - IN
+//* for (key in object) {
+//* // code block to be executed
+//* }
+
+for (let p in people) {
+  // console.log(p);
+  // console.log(people[p]); //? square bracket notasyon
+  console.log(people[p].salary); //? square bracket notasyon
+}
+
+//? Objeler normalde iterable degillerdir. ancak for-in ve for of gibi dongu elemanlari ile ozel olarak itere edilebilirler.
+
+//? Javascript'de Objeler default olarak iterable degildir.
+//? Ama for in ve for of donguleri ile itere edilebilirler.
+
+//? Objelerin key ve value'larini okumak icin built-in metotlar vardir.
+//? Bu mettotlar aslinda objelerin key ve/veya value'lari bir dizi olarak dondurur.
+console.log(Object.keys(people));
+console.log(Object.values(people));
+console.log(Object.entries(people));
+
+//! FOR - OF
+//* for (x of iterable) {
+//* code block to be executed
+//* }
+
+console.log(" ***************** ");
+for (let key of Object.keys(people)) {
+  console.log(key);
+}
