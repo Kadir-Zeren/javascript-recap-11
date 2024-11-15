@@ -193,3 +193,20 @@ const toplaminiAl = (...sayilar) => {
   return sayilar.reduce((t, v) => t + v, 0);
 };
 console.log("SONUC:", toplaminiAl(2, 5, 10, 4, 6, 8));
+
+//*=======================================================
+//*         SPREAD (...)
+//*=======================================================
+
+//? Spread operatoru ise iterables olan bir elemani bireysel
+//? degerler haline getirir.
+
+const ucanAraclar = ["drone", "heli", "ucak"];
+const karaAraclari = ["Tir", "Araba", "Kamyonet", "Bisiklet"];
+
+const tasitlar = [ucanAraclar, karaAraclari];
+console.log(tasitlar);
+console.log(tasitlar[0][1]);
+
+const tasitlar1 = [...ucanAraclar, ...karaAraclari];
+console.log(tasitlar1);
