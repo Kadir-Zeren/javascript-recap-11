@@ -323,3 +323,10 @@ console.log(" ***************** ");
 for (let key of Object.keys(people)) {
   console.log(key);
 }
+
+console.log(" ***************** ");
+//7 people objesindeki tum salary 'leri yazdir
+for (let v of Object.values(people)) {
+  console.log(v.salary);
+  // console. log(v["salary" ]) ;
+}
